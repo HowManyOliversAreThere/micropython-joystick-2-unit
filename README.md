@@ -5,13 +5,11 @@ This repository houses a [MicroPython](https://micropython.org) driver for the M
 It allows you to:
 
 - Read the current X and Y values of the joystick
+    - Either integer (0 - 65535) or float (0.0 - 1.0)
 - Read whether the button is pressed or not
-
-Features not yet implemented:
-
-- Controlling the inbuilt RGB LED
-- Reading the value of the inbuilt RGB LED
-- Triggering an interrupt when the button is pressed
+- Control the inbuilt RGB LED
+- Read the value of the inbuilt RGB LED
+- Read the Bootloader and Firmware version of the device
 
 ## Usage
 
@@ -23,7 +21,11 @@ import joystick_2_unit
 
 i2c = I2C(scl=Pin(32), sda=Pin(26))  # Pins for the ATOM Lite Grove port
 joystick = joystick_2_unit.Joystick2Unit(i2c)
-print(f"x: {joystick.get_x()}, y: {joystick.get_y()}, button: {joystick.is_pressed()}")
+joystick.set_led(253, 176, 192)
+print(
+    f"x: {joystick.get_x()}, y: {joystick.get_y()},"
+    f" button: {joystick.is_pressed()}, led: {joystick.get_led()}"
+)
 ```
 
 See the `examples` folder for example code demonstrating all of the capabilities of the device. To run these, first modify `examples/config.py` to match the pins used for your board, and then you can use `mpremote` to mount and run the code. Eg:
