@@ -16,10 +16,10 @@ It allows you to:
 Below is a minimal example of setting up the peripheral and then reading values from it.
 
 ```python
-from machine import I2C, Pin
+from machine import SoftI2C, Pin
 import joystick_2_unit
 
-i2c = I2C(scl=Pin(32), sda=Pin(26))  # Pins for the ATOM Lite Grove port
+i2c = SoftI2C(scl=Pin(32), sda=Pin(26))  # Pins for the ATOM Lite Grove port
 joystick = joystick_2_unit.Joystick2Unit(i2c)
 joystick.set_led(253, 176, 192)
 print(
