@@ -11,6 +11,8 @@ It allows you to:
 - Read the value of the inbuilt RGB LED
 - Read the Bootloader and Firmware version of the device
 
+https://github.com/user-attachments/assets/ebfabfb1-8d36-41e5-93a6-b1bf625ae02b
+
 ## Usage
 
 Below is a minimal example of setting up the peripheral and then reading values from it.
