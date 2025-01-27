@@ -56,7 +56,7 @@ class Joystick2Unit:
         Returns a list of three integers, each from 0-255, representing the red, green,
         and blue LED values."""
         data = self.i2c.readfrom_mem(self.addr, 0x30, 3)
-        return [int.from_bytes(b, byteorder="little") for b in data]
+        return list(data)
 
     def set_led(self, red: int, green: int, blue: int):
         """Set the LED state.
