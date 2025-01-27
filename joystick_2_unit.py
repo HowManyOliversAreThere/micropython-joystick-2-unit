@@ -50,8 +50,8 @@ class Joystick2Unit:
         """Return True if the button is pressed"""
         return self.i2c.readfrom_mem(self.addr, 0x20, 1) != b"\x01"
 
-    def read_led(self) -> List[int]:
-        """Read the LED state.
+    def get_led(self) -> List[int]:
+        """Get the LED state.
 
         Returns a list of three integers, each from 0-255, representing the red, green,
         and blue LED values."""
