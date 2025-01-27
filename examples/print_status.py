@@ -4,8 +4,10 @@ from . import config
 
 joystick = config.joystick
 
+joystick.set_led(50, 100, 150)
 print(f"Bootloader version: {joystick.get_bootloader_version()}")
 print(f"Firmware version: {joystick.get_firmware_version()}")
+print(f"LED state: {joystick.get_led()}")
 
 print("Starting...")
 while True:

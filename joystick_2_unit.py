@@ -56,7 +56,7 @@ class Joystick2Unit:
         Returns a list of three integers, each from 0-255, representing the red, green,
         and blue LED values."""
         data = self.i2c.readfrom_mem(self.addr, 0x30, 3)
-        return list(data)
+        return list(data)[::-1]
 
     def set_led(self, red: int, green: int, blue: int):
         """Set the LED state.
@@ -65,7 +65,7 @@ class Joystick2Unit:
         if any(not 0 <= c <= 255 for c in (red, green, blue)):
             raise ValueError("LED color values must be between 0 and 255")
 
-        self.i2c.writeto_mem(self.addr, 0x30, bytes([red, green, blue]))
+        self.i2c.writeto_mem(self.addr, 0x30, bytes([blue, green, red]))
 
     def get_bootloader_version(self) -> int:
         """Return the bootloader version as an integer"""
