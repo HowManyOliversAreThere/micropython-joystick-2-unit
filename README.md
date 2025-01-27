@@ -16,13 +16,20 @@ Features not yet implemented:
 
 ## Examples
 
-Below is a minimal example of setting up the peripheral and then reading values from it. See the `examples` folder for example code demonstrating all of the capabilities of the device.
+Below is a minimal example of setting up the peripheral and then reading values from it.
 
 ```python
 from machine import I2C, Pin
-import unit_joystick2
+import joystick_2_unit
 
 i2c = I2C(scl=Pin(32), sda=Pin(26))  # Pins for the ATOM Lite Grove port
-joystick = unit_joystick2.UnitJoystick2(i2c)
+joystick = joystick_2_unit.Joystick2Unit(i2c)
 print(f"x: {joystick.get_x()}, y: {joystick.get_y()}, button: {joystick.is_pressed()}")
+```
+
+See the `examples` folder for example code demonstrating all of the capabilities of the device. To run these, first modify `examples/config.py` to match the pins used for your board, and then you can use `mpremote` to mount and run the code. Eg:
+
+```bash
+mpremote mount .
+from examples import print_status
 ```
