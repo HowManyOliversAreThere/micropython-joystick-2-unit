@@ -12,9 +12,8 @@ Features not yet implemented:
 - Controlling the inbuilt RGB LED
 - Reading the value of the inbuilt RGB LED
 - Triggering an interrupt when the button is pressed
-- `mip` installability
 
-## Examples
+## Usage
 
 Below is a minimal example of setting up the peripheral and then reading values from it.
 
@@ -33,3 +32,13 @@ See the `examples` folder for example code demonstrating all of the capabilities
 mpremote mount .
 from examples import print_status
 ```
+
+## Installation
+
+The easiest way to install the package is using [mip](https://docs.micropython.org/en/latest/reference/packages.html#installing-packages-with-mip) via [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html):
+
+```bash
+mpremote mip install github:HowManyOliversAreThere/micropython-joystick-2-unit
+```
+
+Alternatively just grab `joystick_2_unit.py` and load it however you like.
